@@ -2,6 +2,10 @@
 - name: Test PokeAPI module
   hosts: localhost
   tasks:
+          - name: Install my PokeAPI collection
+            ansible.builtin.collection:
+                    name: collections.pokeapi
+                    state: present
           - name: Call pokeapi module
             pokeapi:
                     pokemon: "{{ pokemon_name }}"
