@@ -1,0 +1,12 @@
+---
+- name: Test PokeAPI module
+  hosts: localhost
+  tasks:
+          - name: Call pokeapi module
+            pokeapi:
+                    pokemon: rayquaza
+            register: result
+
+          - name: Print module result
+            debug:
+                    var: result
