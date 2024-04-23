@@ -4,7 +4,7 @@
   tasks:
           - name: Call pokeapi module
             pokeapi:
-                    pokemon: rayquaza
+                    pokemon: "{{ pokemon_name }}"
             register: result
 
           - name: Print module result
