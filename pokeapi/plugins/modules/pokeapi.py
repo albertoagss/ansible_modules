@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # Importar la clase 'AnsibleModule' de 'ansible.module_utils.basic', que permite la creación de módulos personalizados
-from ansible.module_utils.basic import *
+from ansible.module_utils.basic import AnsibleModule
 # Importar la biblioteca 'requests', que sirve para realizar solicitudes HTTP
 import requests
 
@@ -58,7 +58,7 @@ def main():
         module.exit_json(changed=False, pokemon_data=pokemon_data)
     # Si la función 'get_pokemon_data' NO devuelve datos, fallamos el módulo con 'module.fail_json'
     else:
-        module.fail_json(msg=f"No {search_type} found wirh name {name}")
+        module.fail_json(msg=f"No {search_type} found with name {name}")
 
 # Flujo principal
 if __name__ == '__main__':
