@@ -4,7 +4,7 @@ from ansible.module_utils.basic import *
 # Importar la biblioteca 'requests', que sirve para realizar solicitudes HTTP
 import requests
 
-# Función para realizar la petición a la Api
+# Función para realizar la petición 'BUSCAR POKEMON' a la Api
 def get_pokemon_data(pokemon_name):
     # URL para la llamada a la API
     url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_name.lower()}"
@@ -17,15 +17,27 @@ def get_pokemon_data(pokemon_name):
         return None
 
 # Función principal
+#def main():
+    # Definimos el módulo de Ansible
+#    module = AnsibleModule(
+        # Definimos los argumentos que acepta el módulo
+#        argument_spec=dict(
+            # Argumento 'pokemon', siempre requerido
+#            pokemon=dict(type='str', required=False)
+            #move=dict(type='str', required=False)
+#        )
+#    )
+    
+# Función principal
 def main():
     # Definimos el módulo de Ansible
     module = AnsibleModule(
         # Definimos los argumentos que acepta el módulo
-        argument_spec=dict(
+        argument_spec = {
+            'pokemon' : {'type':'str'}, 
+            'move' : {'type':'str'}
+        }
             # Argumento 'pokemon', siempre requerido
-            pokemon=dict(type='str', required=False)
-            #move=dict(type='str', required=False)
-        )
     )
 
     # Obtenemos el valor del argumento pokemon y lo almacenamos en la variable 'pokemon_name'
