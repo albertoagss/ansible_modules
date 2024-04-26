@@ -7,16 +7,16 @@ import requests
 # Función para realizar la petición a la Api
 def get_pokemon_data(name, search_type):
     # URL para la llamada a la API
-    base_url = f"https://pokeapi.co/api/v2/"
-    if search_type == "pokemon":
-        url = f"{base_url}pokemon/{name.lower()}"
-    elif search_type == "move":
-        url = f"{base_url}move/{name.lower()}" 
-    else:
-        return None
+    base_url = f"https://pokeapi.co/api/v2/pokemon/{name.lower()}"
+    #if search_type == "pokemon":
+    #    url = f"{base_url}pokemon/{name.lower()}"
+    #elif search_type == "move":
+    #    url = f"{base_url}move/{name.lower()}" 
+    #else:
+    #    return None
 
     # Lanzamos una petición get a la url y almacenamos su contenido en la variable answer
-    answer = requests.get(url)
+    answer = requests.get(base_url)
     # Si la petición es exitosa (código de estado 200) devolvemos el contenido de la variable en formato json
     if answer.status_code == 200:
         return answer.json()
@@ -31,7 +31,6 @@ def get_pokemon_data(name, search_type):
 #        argument_spec=dict(
             # Argumento 'pokemon', siempre requerido
 #            pokemon=dict(type='str', required=False)
-            #move=dict(type='str', required=False)
 #        )
 #    )
     
@@ -46,7 +45,7 @@ def main():
         )
     )
 
-    # Obtenemos el valor del argumento pokemon y lo almacenamos en la variable 'pokemon_name'
+    # Obtenemos el valor de los argumentos y los almacenamos en variables
     name = module.params['name']
     search_type = module.params['search_type']
     
