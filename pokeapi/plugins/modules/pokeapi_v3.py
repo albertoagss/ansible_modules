@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-# Este módulo devuelve los datos de un Pokemon realizando una llamada a la API Rest 'PokeAPI'
-# Esta v2 añade la funcionalidad de buscar movimientos, devolviendo su info. principal
+# Este módulo devuelve los datos de un Pokemon o movimiento realizando una llamada a la API Rest 'PokeAPI'
+# Esta v3 añade la funcionalidad de buscar habilidades, devolviendo su info. principal
 
 # Importar la clase 'AnsibleModule' de 'ansible.module_utils.basic', que permite la creación de módulos personalizados
 from ansible.module_utils.basic import AnsibleModule
