@@ -29,7 +29,6 @@ def get_pokemon_data(name, search_type):
     else:
         return None
 
-    
 # Función principal
 def main():
     # Definimos el módulo de Ansible
