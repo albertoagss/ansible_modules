@@ -7,32 +7,22 @@ import requests
 # Función para realizar la petición a la Api
 def get_pokemon_data(name, search_type):
     # URL para la llamada a la API
-    base_url = f"https://pokeapi.co/api/v2/pokemon/{name.lower()}"
-    #if search_type == "pokemon":
-    #    url = f"{base_url}pokemon/{name.lower()}"
-    #elif search_type == "move":
-    #    url = f"{base_url}move/{name.lower()}" 
-    #else:
-    #    return None
+    base_url = f"https://pokeapi.co/api/v2"
+    if search_type == "pokemon":
+        url = f"{base_url}/pokemon/{name.lower()}"
+    elif search_type == "move":
+        url = f"{base_url}/move/{name.lower()}" 
+    else:
+        return None
 
     # Lanzamos una petición get a la url y almacenamos su contenido en la variable answer
-    answer = requests.get(base_url)
+    answer = requests.get(url)
     # Si la petición es exitosa (código de estado 200) devolvemos el contenido de la variable en formato json
     if answer.status_code == 200:
         return answer.json()
     else:
         return None
 
-# Función principal
-#def main():
-    # Definimos el módulo de Ansible
-#    module = AnsibleModule(
-        # Definimos los argumentos que acepta el módulo
-#        argument_spec=dict(
-            # Argumento 'pokemon', siempre requerido
-#            pokemon=dict(type='str', required=False)
-#        )
-#    )
     
 # Función principal
 def main():
@@ -40,8 +30,8 @@ def main():
     module = AnsibleModule(
         # Definimos los argumentos que acepta el módulo
         argument_spec=dict(
-            name=dict(type='str', required=True),
-            search_type=dict(type='str', required=True, choices=['pokemon', 'move'])
+            search_type=dict(type='str', required=True, choices=['pokemon', 'move']),
+            name=dict(type='str', required=True)
         )
     )
 

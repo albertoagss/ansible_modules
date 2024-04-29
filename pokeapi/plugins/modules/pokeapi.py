@@ -23,7 +23,7 @@ def main():
         # Definimos los argumentos que acepta el módulo
         argument_spec=dict(
             # Argumento 'pokemon', siempre requerido
-            pokemon=dict(type='str', required=False)
+            pokemon=dict(type='str', required=True)
             #move=dict(type='str', required=False)
         )
     )
